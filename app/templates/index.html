@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle my-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">United</a>
+    <a class="dropdown-item" href="#">Vitality</a>
+    <a class="dropdown-item" href="#">Spirit</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Tactical</a>
+  </div>
+</div>
+<div class="row">
+    <form class="form-inline center-block" action="/" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="input-group">
+            <label id="browsebutton" class="btn btn-default input-group-addon" for="my-file-selector">
+                {{ form.input_file(id="my-file-selector") }}
+                Browse...
+            </label>
+            <input type="text" class="form-control" readonly>
+        </div>
+        {{ form.submit(class_="btn btn-primary") }}
+    </form>
+</div>
+{% endblock %}
